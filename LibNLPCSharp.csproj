@@ -1,0 +1,233 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{DFA92A28-79AB-46CD-83BD-C681164C903E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>LibNLPCSharp</RootNamespace>
+    <AssemblyName>LibNLPCSharp</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="alphabet\Alphabet.cs" />
+    <Compile Include="alphabet\AlphabetLetter.cs" />
+    <Compile Include="alphabet\AlphabetLetterSelectorButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="alphabet\AlphabetLetterSelectorControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="alphabet\AlphabetLetterSelectorControl.designer.cs">
+      <DependentUpon>AlphabetLetterSelectorControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="alphabet\AlphabetLetterSelectorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="alphabet\AlphabetLetterSelectorForm.designer.cs">
+      <DependentUpon>AlphabetLetterSelectorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="app\AppInfo.cs" />
+    <Compile Include="dict\IWordDictionary.cs" />
+    <Compile Include="gui\InfoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="gui\InfoForm.designer.cs">
+      <DependentUpon>InfoForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="gui\EditLargeTextForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="gui\EditLargeTextForm.Designer.cs">
+      <DependentUpon>EditLargeTextForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="gui\ErrorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="gui\ErrorForm.designer.cs">
+      <DependentUpon>ErrorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="gui\TextNoticeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="gui\TextNoticeForm.Designer.cs">
+      <DependentUpon>TextNoticeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="gui\TextNoticeIO.cs" />
+    <Compile Include="gui\TextNoticeMgr.cs" />
+    <Compile Include="io\IOUtils.cs" />
+    <Compile Include="io\tcf\INamedTCFElement.cs" />
+    <Compile Include="io\tcf\TCFLemma.cs" />
+    <Compile Include="io\tcf\IDGenerator.cs" />
+    <Compile Include="io\tcf\TCFFile.cs" />
+    <Compile Include="io\tcf\TCFPoSTag.cs" />
+    <Compile Include="io\tcf\TCFSentence.cs" />
+    <Compile Include="io\tcf\TCFTextSpan.cs" />
+    <Compile Include="io\tcf\TCFToken.cs" />
+    <Compile Include="io\texttokenizing\EnumTextTokenType.cs" />
+    <Compile Include="io\texttokenizing\ITextTokenizer.cs" />
+    <Compile Include="io\texttokenizing\PushbackCharacterReader.cs" />
+    <Compile Include="io\texttokenizing\SimpleWordTokenizer.cs" />
+    <Compile Include="io\texttokenizing\StreamChar.cs" />
+    <Compile Include="io\texttokenizing\TextToken.cs" />
+    <Compile Include="simpletokenizing\EnumGeneralTokenType.cs" />
+    <Compile Include="simpletokenizing\ITokenPatternMatcher.cs" />
+    <Compile Include="simpletokenizing\ITokenPatternMatcherExt.cs" />
+    <Compile Include="simpletokenizing\LinearPatternSequence.cs" />
+    <Compile Include="simpletokenizing\LinearPatternSequenceCollection.cs" />
+    <Compile Include="simpletokenizing\Token.cs" />
+    <Compile Include="simpletokenizing\Tokenizer.cs" />
+    <Compile Include="simpletokenizing\TokenPattern.cs" />
+    <Compile Include="simpletokenizing\TokenPatternBuilder.cs" />
+    <Compile Include="simpletokenizing\TokenPatternBuilder.Delimiter.cs" />
+    <Compile Include="simpletokenizing\TokenPatternBuilder.Space.cs" />
+    <Compile Include="simpletokenizing\TokenPatternBuilder.String.cs" />
+    <Compile Include="simpletokenizing\TokenPatternBuilder.Word.cs" />
+    <Compile Include="simpletokenizing\TokenPatternResult.cs" />
+    <Compile Include="simpletokenizing\TokenStream.cs" />
+    <Compile Include="text\LevenshteinDistance.cs" />
+    <Compile Include="util\CounterMapT.cs" />
+    <Compile Include="util\DictionaryExt.cs" />
+    <Compile Include="util\FlagSet.cs" />
+    <Compile Include="util\HashSetExt.cs" />
+    <Compile Include="util\model\AbstractDictionary.cs" />
+    <Compile Include="util\model\AbstractDocument.cs" />
+    <Compile Include="util\model\AbstractList.cs" />
+    <Compile Include="util\model\impl\ChangedFlag.cs" />
+    <Compile Include="util\DelayedEvent2.cs" />
+    <Compile Include="util\IMySet.cs" />
+    <Compile Include="util\model\ModelDictionary.cs" />
+    <Compile Include="util\model\ModelList.cs" />
+    <Compile Include="util\model\IObserver.cs" />
+    <Compile Include="util\model\impl\DelayedEvent.cs" />
+    <Compile Include="util\model\IObservable.cs" />
+    <Compile Include="util\model\impl\IChangedFlag.cs" />
+    <Compile Include="util\model\impl\Multicaster.cs" />
+    <Compile Include="util\RandomNumberGenerator.cs" />
+    <Compile Include="util\SKVP.cs" />
+    <Compile Include="util\SKVPSet.cs" />
+    <Compile Include="util\SortedSet.cs" />
+    <Compile Include="util\StringCache.cs" />
+    <Compile Include="util\StringExt.cs" />
+    <Compile Include="util\TimeSpanEx.cs" />
+    <Compile Include="util\TimeToCompletionEstimator.cs" />
+    <Compile Include="util\CounterMap.cs" />
+    <Compile Include="util\Tuple.cs" />
+    <Compile Include="util\XMLUtils.cs" />
+    <Content Include="dict\README.txt" />
+    <Compile Include="dict\SimpleMemoryDictionary.cs" />
+    <Compile Include="gui\GUIToolkit.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="gui\Option.cs" />
+    <Compile Include="gui\SelectOptionsControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="gui\SelectOptionsControl.Designer.cs">
+      <DependentUpon>SelectOptionsControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="util\INamed.cs" />
+    <Compile Include="util\NumberUtils.cs" />
+    <Compile Include="gui\SelectOptionsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="gui\SelectOptionsForm.designer.cs">
+      <DependentUpon>SelectOptionsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="gui\TextInputForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="gui\TextInputForm.Designer.cs">
+      <DependentUpon>TextInputForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="io\CSVReader.cs" />
+    <Compile Include="io\CSVWriter.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="util\IModelElement.cs" />
+    <Compile Include="util\AbstractDictionary.cs" />
+    <Compile Include="util\AbstractList.cs" />
+    <Compile Include="util\AbstractSet.cs" />
+    <Compile Include="util\ChangedFlag.cs" />
+    <Compile Include="util\AbstractOrderedSet.cs" />
+    <Compile Include="util\OrderedSetWithChangedFlag.cs" />
+    <Compile Include="util\CounterInt32.cs" />
+    <Compile Include="util\DelayedEvent.cs" />
+    <Compile Include="util\DictionaryWithChangedFlag.cs" />
+    <Compile Include="util\IHasChangedFlag.cs" />
+    <Compile Include="util\ImplementationErrorException.cs" />
+    <Compile Include="util\ListWithChangedFlag.cs" />
+    <Compile Include="util\PersistentProperties.cs" />
+    <Compile Include="util\SetWithChangedFlag.cs" />
+    <Compile Include="util\Util.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="alphabet\AlphabetLetterSelectorControl.resx">
+      <DependentUpon>AlphabetLetterSelectorControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="alphabet\AlphabetLetterSelectorForm.resx">
+      <DependentUpon>AlphabetLetterSelectorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="gui\InfoForm.resx">
+      <DependentUpon>InfoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="gui\EditLargeTextForm.resx">
+      <DependentUpon>EditLargeTextForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="gui\ErrorForm.resx">
+      <DependentUpon>ErrorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="gui\SelectOptionsControl.resx">
+      <DependentUpon>SelectOptionsControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="gui\SelectOptionsForm.resx">
+      <DependentUpon>SelectOptionsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="gui\TextInputForm.resx">
+      <DependentUpon>TextInputForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="gui\TextNoticeForm.resx">
+      <DependentUpon>TextNoticeForm.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
