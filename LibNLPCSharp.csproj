@@ -61,6 +61,12 @@
     </Compile>
     <Compile Include="app\AppInfo.cs" />
     <Compile Include="dict\IWordDictionary.cs" />
+    <Compile Include="gui\SelectChoicesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="gui\SelectChoicesForm.designer.cs">
+      <DependentUpon>SelectChoicesForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="gui\InfoForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -118,6 +124,7 @@
     <Compile Include="simpletokenizing\TokenPatternResult.cs" />
     <Compile Include="simpletokenizing\TokenStream.cs" />
     <Compile Include="text\LevenshteinDistance.cs" />
+    <Compile Include="util\AbstractProperties.cs" />
     <Compile Include="util\CounterMapT.cs" />
     <Compile Include="util\DictionaryExt.cs" />
     <Compile Include="util\FlagSet.cs" />
@@ -135,6 +142,7 @@
     <Compile Include="util\model\IObservable.cs" />
     <Compile Include="util\model\impl\IChangedFlag.cs" />
     <Compile Include="util\model\impl\Multicaster.cs" />
+    <Compile Include="util\PersistentStringMap.cs" />
     <Compile Include="util\RandomNumberGenerator.cs" />
     <Compile Include="util\SKVP.cs" />
     <Compile Include="util\SKVPSet.cs" />
@@ -199,6 +207,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="alphabet\AlphabetLetterSelectorForm.resx">
       <DependentUpon>AlphabetLetterSelectorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="gui\SelectChoicesForm.resx">
+      <DependentUpon>SelectChoicesForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="gui\InfoForm.resx">
       <DependentUpon>InfoForm.cs</DependentUpon>

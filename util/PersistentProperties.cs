@@ -8,7 +8,7 @@ using System.Text;
 namespace LibNLPCSharp.util
 {
 
-	public class PersistentProperties
+	public class PersistentProperties : AbstractProperties
 	{
 
 		private class MyProperty
@@ -94,7 +94,7 @@ namespace LibNLPCSharp.util
 			private set;
 		}
 
-		public string this[string key]
+		public override string this[string key]
 		{
 			get {
 				MyProperty value;

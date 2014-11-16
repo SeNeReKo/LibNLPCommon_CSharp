@@ -11,7 +11,7 @@ using System.Windows.Forms;
 namespace LibNLPCSharp.gui
 {
 
-	public partial class SelectOptionsForm : Form
+	public partial class SelectChoicesForm : Form
 	{
 
 		////////////////////////////////////////////////////////////////
@@ -22,15 +22,17 @@ namespace LibNLPCSharp.gui
 		// Variables
 		////////////////////////////////////////////////////////////////
 
-		Option[] data;
+		string[] data;
 
 		////////////////////////////////////////////////////////////////
 		// Constructors
 		////////////////////////////////////////////////////////////////
 
-		public SelectOptionsForm(string title, string labelText, params Option[] data)
+		public SelectChoicesForm(string title, string labelText, params string[] data)
 		{
 			InitializeComponent();
+
+			UpdateComponentStates();
 
 			Text = title;
 			label1.Text = labelText;
@@ -42,37 +44,63 @@ namespace LibNLPCSharp.gui
 		// Properties
 		////////////////////////////////////////////////////////////////
 
-		public Option[] Options
+		public string[] Options
 		{
 			get {
 				if (data == null) {
-					Option[] ret = new Option[0];
+					string[] ret = new string[0];
 					return ret;
 				} else {
-					Option[] ret = new Option[data.Length];
-					for (int i = 0; i < data.Length; i++) {
-						ret[i] = new Option(data[i].Key, data[i].Description, checkedListBox1.GetItemCheckState(i) == CheckState.Checked);
-					}
-					return ret;
+					return data;
 				}
 			}
 			set {
-				checkedListBox1.Items.Clear();
+				listBox1.Items.Clear();
 				if (value == null) {
 					data = null;
 				} else {
 					data = value;
 					for (int i = 0; i < data.Length; i++) {
-						checkedListBox1.Items.Add(data[i].Description);
-						checkedListBox1.SetItemChecked(checkedListBox1.Items.Count - 1, data[i].IsChecked);
+						listBox1.SelectedIndex = -1;
+						listBox1.Items.Add(data[i]);
 					}
 				}
+			}
+		}
+
+		public string SelectedItem
+		{
+			get {
+				if (listBox1.SelectedIndex < 0) return null;
+				return data[listBox1.SelectedIndex];
 			}
 		}
 
 		////////////////////////////////////////////////////////////////
 		// Methods
 		////////////////////////////////////////////////////////////////
+
+		private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+		{
+			UpdateComponentStates();
+		}
+
+		private void UpdateComponentStates()
+		{
+			btnOkay.Enabled = listBox1.SelectedIndex >= 0;
+		}
+
+		private void listBox1_DoubleClick(object sender, EventArgs e)
+		{
+			UpdateComponentStates();
+			btnOkay_Click(null, null);
+		}
+
+		private void btnOkay_Click(object sender, EventArgs e)
+		{
+			DialogResult = System.Windows.Forms.DialogResult.OK;
+			Close();
+		}
 
 	}
 
