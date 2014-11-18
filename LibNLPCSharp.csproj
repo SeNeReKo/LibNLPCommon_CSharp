@@ -60,6 +60,39 @@
       <DependentUpon>AlphabetLetterSelectorForm.cs</DependentUpon>
     </Compile>
     <Compile Include="app\AppInfo.cs" />
+    <Compile Include="bgtask\AbstractBackgroundTask.cs" />
+    <Compile Include="bgtask\Argument.cs" />
+    <Compile Include="bgtask\ArgumentDescription.cs" />
+    <Compile Include="bgtask\ArgumentEditorControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="bgtask\ArgumentEditorControl.designer.cs">
+      <DependentUpon>ArgumentEditorControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="bgtask\ArgumentEditorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="bgtask\ArgumentEditorForm.designer.cs">
+      <DependentUpon>ArgumentEditorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="bgtask\ArgumentList.cs" />
+    <Compile Include="bgtask\BackgroundTaskLabel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="bgtask\BackgroundTaskLabel.designer.cs">
+      <DependentUpon>BackgroundTaskLabel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="bgtask\BackgroundTaskList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="bgtask\BackgroundTaskList.designer.cs">
+      <DependentUpon>BackgroundTaskList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="bgtask\EnumBackgroundTaskState.cs" />
+    <Compile Include="bgtask\IBackgroundTask.cs" />
+    <Compile Include="bgtask\OnBackgroundTaskDelegate.cs" />
+    <Compile Include="bgtask\OnTaskProgressDelegate.cs" />
+    <Compile Include="bgtask\ProgressIndicator.cs" />
     <Compile Include="dict\IWordDictionary.cs" />
     <Compile Include="gui\SelectChoicesForm.cs">
       <SubType>Form</SubType>
@@ -207,6 +240,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="alphabet\AlphabetLetterSelectorForm.resx">
       <DependentUpon>AlphabetLetterSelectorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="bgtask\ArgumentEditorControl.resx">
+      <DependentUpon>ArgumentEditorControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="bgtask\ArgumentEditorForm.resx">
+      <DependentUpon>ArgumentEditorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="bgtask\BackgroundTaskLabel.resx">
+      <DependentUpon>BackgroundTaskLabel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="bgtask\BackgroundTaskList.resx">
+      <DependentUpon>BackgroundTaskList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="gui\SelectChoicesForm.resx">
       <DependentUpon>SelectChoicesForm.cs</DependentUpon>
