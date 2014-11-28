@@ -158,10 +158,13 @@
     <Compile Include="simpletokenizing\TokenStream.cs" />
     <Compile Include="text\LevenshteinDistance.cs" />
     <Compile Include="util\AbstractProperties.cs" />
+    <Compile Include="util\AbstractStack.cs" />
+    <Compile Include="util\ReadOnlyDictionary.cs" />
     <Compile Include="util\CounterMapT.cs" />
     <Compile Include="util\DictionaryExt.cs" />
     <Compile Include="util\FlagSet.cs" />
     <Compile Include="util\HashSetExt.cs" />
+    <Compile Include="util\IReadOnlyDictionary.cs" />
     <Compile Include="util\model\AbstractDictionary.cs" />
     <Compile Include="util\model\AbstractDocument.cs" />
     <Compile Include="util\model\AbstractList.cs" />

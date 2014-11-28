@@ -183,7 +183,7 @@ namespace LibNLPCSharp.bgtask
 					}
 					break;
 				case EnumBackgroundTaskState.Failed: {
-						ErrorForm form = new ErrorForm("", task.Error);
+						ErrorForm form = new ErrorForm(task.Error.ToString(), task.Output);
 						form.Show();
 					}
 					break;

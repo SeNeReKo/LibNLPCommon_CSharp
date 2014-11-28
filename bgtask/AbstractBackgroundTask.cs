@@ -72,7 +72,6 @@ namespace LibNLPCSharp.bgtask
 		{
 			this.parent = parent;
 			this.Name = name;
-			this.Output = new StringBuilder();
 			this.ph = new PProgressHelper(parent, this, new OnTaskProgressDelegate(__OnProgress));
 		}
 
@@ -100,7 +99,7 @@ namespace LibNLPCSharp.bgtask
 			private set;
 		}
 
-		public StringBuilder Output
+		public string Output
 		{
 			get;
 			private set;
@@ -150,6 +149,8 @@ namespace LibNLPCSharp.bgtask
 				error = ee;
 				log.WriteLine(ee.ToString());
 			}
+
+			Output = log.ToString();
 
 			if (OnBackgroundTaskCompleted != null) {
 				parent.Invoke(new System.Threading.ThreadStart(__FireOnBackgroundTaskCompleted));

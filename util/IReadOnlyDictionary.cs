@@ -1,19 +1,15 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
 
-namespace LibNLPCSharp.bgtask
+namespace LibNLPCSharp.util
 {
 
-	public interface IBackgroundTask
+	public interface IReadOnlyDictionary<TKey, TValue> : IEnumerable
 	{
-
-		event OnBackgroundTaskDelegate OnBackgroundTaskStarted;
-		event OnBackgroundTaskDelegate OnBackgroundTaskCompleted;
-
-		event OnTaskProgressDelegate OnProgress;
 
 		////////////////////////////////////////////////////////////////
 		// Constants
@@ -31,27 +27,22 @@ namespace LibNLPCSharp.bgtask
 		// Properties
 		////////////////////////////////////////////////////////////////
 
-		ArgumentDescription[] ArgumentDescriptions
+		ICollection<TKey> Keys
+		{
+			get;
+		}
+		
+		ICollection<TValue> Values
 		{
 			get;
 		}
 
-		string Output
+		int Count
 		{
 			get;
 		}
-
-		Exception Error
-		{
-			get;
-		}
-
-		string Name
-		{
-			get;
-		}
-
-		EnumBackgroundTaskState State
+		
+		TValue this[TKey key]
 		{
 			get;
 		}
@@ -60,9 +51,15 @@ namespace LibNLPCSharp.bgtask
 		// Methods
 		////////////////////////////////////////////////////////////////
 
-		void Terminate();
+		bool ContainsKey(TKey key);
 
-		void Start(ArgumentList arguments);
+		bool TryGetValue(TKey key, out TValue value);
+
+		bool Contains(KeyValuePair<TKey, TValue> item);
+
+		void CopyTo(KeyValuePair<TKey, TValue>[] array, int arrayIndex);
+
+		IEnumerator<KeyValuePair<TKey, TValue>> GetEnumerator();
 
 	}
 
