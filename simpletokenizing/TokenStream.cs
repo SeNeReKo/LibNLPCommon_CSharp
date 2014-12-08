@@ -10,6 +10,52 @@ namespace LibNLPCSharp.simpletokenizing
 	public class TokenStream
 	{
 
+		public struct TSeq
+		{
+			public readonly string Name;
+			public readonly TokenPattern[] Sequence;
+			public readonly int[] PatternContent;
+
+			public TSeq(string name, params TokenPattern[] sequence)
+			{
+				this.Name = name;
+				this.Sequence = sequence;
+
+				List<int> ret = new List<int>();
+				for (int i = 0; i < sequence.Length; i++) {
+					if (sequence[i].IsContent)
+						ret.Add(i);
+				}
+				PatternContent = ret.ToArray();
+			}
+
+		}
+
+		public struct TSeqMatchResult
+		{
+			public static readonly TSeqMatchResult None = new TSeqMatchResult();
+
+			public readonly bool IsMatch;
+			public readonly string Name;
+			public readonly Token[] Tokens;
+			public readonly Token[] TokensContent;
+
+			public TSeqMatchResult(string name, Token[] tokens, int[] indicesContent)
+			{
+				this.IsMatch = true;
+
+				this.Name = name;
+				this.Tokens = tokens;
+
+				List<Token> ret = new List<Token>();
+				foreach (int i in indicesContent) {
+					ret.Add(tokens[i]);
+				}
+				TokensContent = ret.ToArray();
+			}
+
+		}
+
 		public interface IMarker
 		{
 			void Reset();
@@ -273,6 +319,17 @@ namespace LibNLPCSharp.simpletokenizing
 		protected void __ResetToPosition(int pos)
 		{
 			this.pos = pos;
+		}
+
+		public TSeqMatchResult TryEatAlternatives(params TSeq[] sequences)
+		{
+			foreach (TSeq sequence in sequences) {
+				Token[] tokens = TryEatSequence(sequence.Sequence);
+				if (tokens != null) {
+					return new TSeqMatchResult(sequence.Name, tokens, sequence.PatternContent);
+				}
+			}
+			return TSeqMatchResult.None;
 		}
 
 	}
